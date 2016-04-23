@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Pastoralist</title>
+    <link href="favicon.png" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link href="styles/styles.css" rel="stylesheet">
+  </head>
+
+  <body layout="column">
+    <md-toolbar ng-controller="NavbarController" class="md-whiteframe-z2">
+      <div class="md-toolbar-tools" layout-margin layout-padding>
+        <a ui-sref="home" md-button>Home</a>
+        <a ui-sref="information" md-button>Information</a>
+        <a ui-sref="communication" md-button>Communication</a>
+        <a ui-sref="alerts" md-button>Alerts</a>
+      </div>
+    </md-toolbar>
+    <div ui-view></div>
+
+    <!-- Third-party Libraries -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/satellizer/satellizer.js"></script>
+
+    <!-- Application Code -->
+    <script src="app.js"></script>
+    <script src="shared/navbar/navbar.js"></script>
+    <script src="components/alerts/alerts.js"></script>
+    <script src="components/communication/communication.js"></script>
+    <script src="components/home/home.js"></script>
+    <script src="components/information/information.js"></script>
+    <script src="components/weather/weather.js"></script>
+
+  </body>
+
+</html>
