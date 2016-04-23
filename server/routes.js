@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var api = require('./apiServices');
-
+var db = require('./db');
 
 router.get('/', function(req, res){
 	console.log('json: ', JSON.stringify())
@@ -31,15 +31,27 @@ router.post('/communication', function(req, res){
 
 
 router.get('/alert', function(req, res){
-	//gets search info off req.query
+	var alert = {
+		lat: 92,
+		lon: 124
+	}
 
-	//calls func on api
-
-	//returns data
+	db.getAlerts(alert, function(data){
+		res.send(data);
+	});
 })
 
 router.post('/alert', function(req, res){
+	console.log('in alert post route');
 
+	var alert = {
+		lat: 92,
+		lon: 124,
+		alert: "Oh n/m, all good."
+	}
+
+	db.newAlert(alert);
+	res.sendStatus(400);
 })
 
 
