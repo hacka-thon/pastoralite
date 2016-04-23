@@ -1,12 +1,13 @@
-angular.module('myApp.home', [])
+angular.module('myApp.information', [])
 
   .config( function( $stateProvider) {
-    $stateProvider.state('home', {
-      url: '/home',
-      templateUrl: 'components/home/communication.html',
-      controller: 'HomeController'
+    $stateProvider
+    .state('information', {
+        url: '/information',
+        templateUrl: 'components/information/information.html',
+        controller: 'components/information/information.js'
     })
   })
 
-  .controller('HomeController', function() {
+  .controller('information', function() {
   });

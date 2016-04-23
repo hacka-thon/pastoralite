@@ -1,12 +1,12 @@
-angular.module('myApp.home', [])
+angular.module('myApp.alerts', [])
 
   .config( function( $stateProvider) {
-    $stateProvider.state('home', {
-      url: '/home',
-      templateUrl: 'components/home/communication.html',
-      controller: 'HomeController'
+    $stateProvider.state('alerts', {
+      url: '/alerts',
+      templateUrl: 'components/alerts/alerts.html',
+      controller: 'alerts'
     })
   })
 
-  .controller('HomeController', function() {
+  .controller('alerts', function() {
   });
