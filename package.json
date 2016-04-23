@@ -1,0 +1,21 @@
+{
+  "name": "pastoralist",
+  "version": "1.0.0",
+  "description": "SpaceApps Hackathon 2016 - Cross Campus, Pasadena, CA https://2016.spaceappschallenge.org/challenges/earth/emobile-pastoralism",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genevieve314/pastoralist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genevieve314/pastoralist/issues"
+  },
+  "homepage": "https://github.com/genevieve314/pastoralist#readme"
+}
