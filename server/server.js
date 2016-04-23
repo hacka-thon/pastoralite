@@ -1,33 +1,23 @@
-var path = require('path');
+var app = require('express')();
+var routes = require('./routes.js');
 var bodyParser = require('body-parser');
-var express = require('express');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var cors = require('cors')
+var PORT = process.env.PORT || 3000;
 
-var config = require('./config');
-
-mongoose.connect(config.MONGO_URI);
-mongoose.connection.on('error', function() {
-  console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
-});
-
-var app = express();
-
-app.set('port', process.env.PORT || 3000);
-
-app.use(cors());
-app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extend: true}));
 
-// serve the static client files
-app.use(express.static(path.join(__dirname, '../client')));
+app.use((req, res, next) => {
+  res.header('Access-Controll-Allow-Origin', '*');
+  res.header('Access-Controll-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Controll-Expose-Headers', 'token');
 
-// set up the routes
-require('./routes')(app);
-
-// start the server
-app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + app.get('port'));
+  next();
 });
+
+
+// app.use(express.static(__dirname + '/../client/'));
+app.use('/', routes);
+
+app.listen(PORT, function(){
+	console.log("pastoralist server listening on: ", PORT)
+})
