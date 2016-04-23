@@ -3,12 +3,22 @@ var router = express.Router();
 var api = require('./apiServices');
 
 
+router.get('/', function(req, res){
+	console.log('json: ', JSON.stringify())
+	res.send('hey! this server is working!');
+})
+
 router.get('/info', function(req, res){
-	//gets search info off req.query
+	console.log('in info route: ', req.query);
+	var query = {
+		lat: -34.1478,
+		lon: 118.1445
+	};
 
-	//calls func on api
+	api.getData(query, function(data){
+		res.send(data);
+	})
 
-	//returns data
 })
 
 router.get('/communication', function(req, res){

@@ -15,9 +15,9 @@ app.use((req, res, next) => {
 });
 
 
-app.use(express.static(__dirname + '/../client/'));
+// app.use(express.static(__dirname + '/../client/'));
 app.use('/', routes);
 
-app.listed(PORT, function(){
-	console.log("pastoralist server listening on: " PORT)
+app.listen(PORT, function(){
+	console.log("pastoralist server listening on: ", PORT)
 })
