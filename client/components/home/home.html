@@ -1,4 +1,4 @@
-<section class="hero" layout="column" layout-align="center center">
+<section class="hero" layout="column" layout-align="center center" ng-controller="HomeCtrl">
 
   <div class="hero-logo">
     <h1 class="md-headline">Angular-Express-Starter</h1>
@@ -16,6 +16,9 @@
       <md-icon>bug_report</md-icon>
       Report an issue
     </md-button>
+    <div>
+        <textarea ng-model="HomeCtrl.entry" ng-blur="HomeCtrl.showEntry()" name="home_entry"></textarea>
+    </div>
   </div>
 
 </section>

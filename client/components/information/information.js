@@ -10,4 +10,7 @@ angular.module('myApp.information', [])
   })
 
   .controller('information', function() {
+      // get lat long from browser or from user
+      // pass lat long to node using API and Get
+      //
   });
