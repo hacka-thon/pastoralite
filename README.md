@@ -3,14 +3,16 @@
 SpaceApps Hackathon 2016 - Cross Campus, Pasadena, CA
 https://2016.spaceappschallenge.org/challenges/earth/emobile-pastoralism
 
-**Solution**
+##Solution
+-------------
 PastoraLITE is a light web app for pastoralist societies to access important information and alerts while on the move.
 
 By using globally recognizable icons for alerts, PastoraLITE can be easily used by people from all over the world.
 
 User will be able to see alerts in the paths and provide their local data, post alerts and messages for others to see.
 
-**Prompt**
+##Prompt
+--------------
 ###DESCRIPTION
 ==============
 Help pastoralist communities around the world preserve their livelihood, by providing them access to information and resources (e.g grass land, water, safe routes) to prepare and support their migration journey.
@@ -31,6 +33,7 @@ Information on grass land, water points, safest routes to follow for migration j
 Information related to land rights and information on laws of common land, laws affecting / related to pastoralist or legal issues, information related to diseases, feed breeding, value added products.
 
 ###CONSTRAINTS TO TAKE INTO ACCOUNT
+===================================
 -Apps should be intuitive, perhaps symbol-or picture based to make accessible to the widest possible audience.
 -Unreliable internet/data connectivity: simplicity and low data use recommended.
 -Availability of smartphones may be limited.
