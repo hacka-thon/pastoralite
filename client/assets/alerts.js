@@ -19,12 +19,12 @@ $(document).ready(function(){
 
 					var newAlert = $('<li><img src=' + curr.alert + ' class="col-xs-1 alerts"> lat: ' + curr.lat + ' lon: ' + curr.lon + '</li>');
 
-					$('#alert-list').append(newAlert);	
+					$('#alert-list').append(newAlert);
 				}
 			}
-		})
+		});
 
-	})
+	});
 
 	$('.send-alerts').click(function(e){
 		var data = {
@@ -32,9 +32,9 @@ $(document).ready(function(){
 			lon: state.lon,
 			time: $.now(),
 			alert: e.target.currentSrc
-		}
+		};
 
-		var data = JSON.stringify(data);
+		data = JSON.stringify(data);
 
 		$.ajax({
 			type: 'POST',
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			success: function(){
 				console.log('--> alert sent <--');
 			}
-		})
-	})
+		});
+	});
 
 });

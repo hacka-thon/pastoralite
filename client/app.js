@@ -8,9 +8,9 @@ $(document).ready(function(){
     $('#back').click(function(){
     	helpers.switchButtons();
     	helpers.hideViews();
-    })
+    });
 
-})
+});
 
 var helpers = {
 	hideViews: function(){

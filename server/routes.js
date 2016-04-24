@@ -17,7 +17,7 @@ router.get('/alerts', function(req, res){
 });
 
 router.post('/alerts', function(req, res){
-	console.log('--> req.body alerts: ', req.body)
+	console.log('--> req.body alerts: ', req.body);
 
 
 	db.postAlert(req.body);
