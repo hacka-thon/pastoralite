@@ -1,5 +1,7 @@
 $(document).ready(function(){
   $('#get-messages').click(function(){
+    helpers.switchButtons();
+    $('#messages').show();
     $.ajax({
       method: 'GET',
       url: '/communication',

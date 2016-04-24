@@ -2,42 +2,43 @@
 <html lang='en'>
 <head>
 	<meta charset='UTF-8'>
-	<title>Genevieve Kolve</title>
+	<title>PastoraLITE</title>
 	<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'/>
 	<link rel='stylesheet' type='text/css' href='styles.css'/>
 </head>
 
 <body>
-	<h1>pastoraLite</h1>
-	<button class='home' id='get-alerts'>alerts</button>
-	<button class='home' id='get-messages'>messages</button>
-	<button class='home' id='get-weather'>weather</button>
-	<button class='home' id='back'>back</button>
+	<h1>PastoraLite</h1>
+	<div class="nav">
+		<button class='home' id='get-alerts'>alerts</button>
+		<button class='home' id='get-messages'>messages</button>
+		<button class='home' id='get-weather'>weather</button>
+		<button class='home' id='back'>back</button>
+	</div>
 
 	<div id='alerts'>
 		<div class='send-alerts'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_bridge_water.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_general.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_highwater.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_lowwater.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_landslide.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_lightning.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_pass_closed.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_raincloud.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_snow.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_snowcloud.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_wind.svg'>
-			<img class='col-xs-2' src='assets/svgs/icons_black/bl_tornado.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_bridge_water.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_general.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_highwater.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_lowwater.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_landslide.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_lightning.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_pass_closed.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_raincloud.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_snow.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_snowcloud.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_wind.svg'>
+			<img class='col-xs-2' src='assets/svgs/icons_white/wt_tornado.svg'>
 		</div>
 		<br>
-		<ul id='alert-list'><ul>
+		<div class="alert-display">
+			<ul id='alert-list'><ul>
+		</div>
 
 	</div>
 
-	<div id='messages'></div>
-	<div id='weather'></div>
-
-	<div class="messages">
+	<div id='messages'>
 		<form class="message-form">
 			<input id="message-input" placeholder="type your message here"></input>
 			<button type="button" name="message-button">Send</button>
@@ -45,8 +46,12 @@
 		<ul id="message-display"></ul>
 	</div>
 
+	<div id='weather'></div>
+
+
 	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
 	<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='assets/messages.js'></script>
 	<script type='text/javascript' src='assets/alerts.js'></script>
 	<script type='text/javascript' src='app.js'></script>
 
