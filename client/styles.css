@@ -6,18 +6,44 @@ h1 {
 	color: #9FFFE1;
 	width: 210px;
 	margin: 0 auto;
-	padding: 5px;
+	padding: 15px 0;
+}
+
+.direction {
+	width: 175px;
+	margin: 0 auto;
+}
+
+.dir-icon {
+	width: 50px;
+	height: 50px;
 }
 
 .nav {
 	width: 210px;
 	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#back{
+	width: 200px;
+	margin: 0 auto;
+}
+
+.send-alerts {
+	margin-bottom: 20px;
+}
+
+.send-alerts img {
 	padding-bottom: 5px;
 }
 
-.sent-alerts {
-	height: auto;
-	margin-bottom: 20px;
+#alert-info {
+	color: #9FFFE1;
+	width: 224px;
+	margin: 0 auto;
+	padding-bottom: 10px;
 }
 
 .alert-item {
@@ -27,6 +53,11 @@ h1 {
 #alert-list li img {
 	padding-top: 5px;
 	height: 50px;
+}
+
+.message-form {
+	width: 213px;
+	margin: 0 auto;
 }
 
 #messages {
