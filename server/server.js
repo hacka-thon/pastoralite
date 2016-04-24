@@ -20,5 +20,5 @@ app.use(express.static(__dirname + '/../client/'));
 app.use('/', routes);
 
 app.listen(PORT, function(){
-	console.log("pastoralist server listening on: ", PORT)
-})
+	console.log("pastoralist server listening on: ", PORT);
+});
