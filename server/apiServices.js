@@ -4,6 +4,8 @@ var key = require('./utils').key;
 
 module.exports = {
 	getWeather: function(query, callback){
+		console.log('--> query in apiServices: ', query);
+
 		var queryStr = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + query.lat + '&lon=' + query.lon + '&APPID=' + key;
 
 		request.get(queryStr, function(err, res, data) {
@@ -11,6 +13,7 @@ module.exports = {
 
 			data = JSON.parse(data);
 			data = data.list;
+			console.log('--> data list in apiServices: ', data);
 
 			var dataArr = [];
 

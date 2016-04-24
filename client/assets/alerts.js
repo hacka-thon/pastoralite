@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#back').hide();
+
 	console.log('--> helpers test: ', helpers);
 
 	$('#get-alerts').click(function(){

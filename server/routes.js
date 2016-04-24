@@ -5,67 +5,42 @@ var api = require('./apiServices');
 var db = require('./db');
 
 
-router.get('/alerts', function(req, res){
-	var location = {
-		lat: 92,
-		lon: 124
-	};
+router.get('/messages', function(req, res){
 
-	db.getAlerts(location, function(data){
+	db.getMessages(function(data){
+		res.send(data);
+	});
+});
+
+router.post('/messages', function(req, res){
+	console.log('--> req.body messages: ', req.body);
+
+	db.postMessage(req.body);
+	res.sendStatus(200);
+});
+
+router.get('/alerts', function(req, res){
+
+	db.getAlerts(function(data){
 		res.send(data);
 	});
 });
 
 router.post('/alerts', function(req, res){
 	console.log('--> req.body alerts: ', req.body);
-
-
 	db.postAlert(req.body);
 	res.sendStatus(200);
 });
 
-// router.get('/info', function(req, res){
-// 	var location = parse(req.url);
-// 	console.log('parsed url: ', location);
+router.get('/weather', function(req, res){
+	// var checkFormat = JSON.parse(req.query);
+	console.log('--> req query in weather: ', req.query);
 
-// 	location = {
-// 		lat: 14,
-// 		lon: 118.1445,
-// 		direction: 0
-// 	};
+	api.getWeather(req.body, function(data){
+		res.send(data);
+	});
 
-// 	api.getWeather(location, function(data){
-// 		res.send(data);
-// 	});
-
-// });
-
-// router.get('/communication', function(req, res){
-// 	var location = {
-// 		lat: 72,
-// 		lon: 97
-// 	};
-
-// 	db.getMessages(location, function(data){
-// 		res.json(data);
-// 	});
-// });
-
-// router.post('/communication', function(req, res){
-// 	var message = {
-// 		lat: 27,
-// 		lon: 97,
-// 		message: "How's it going out there?"
-// 	};
-
-// 	db.postMessage(message, function(){
-// 		res.sendStatus(200);
-// 	});
-// });
-
-
-
-
+});
 
 // router.post('/mystation', function(req, res){
 // 	//gets search info off req.body
