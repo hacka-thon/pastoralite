@@ -1,12 +1,11 @@
 $(document).ready(function(){
 	$('#back').hide();
 	console.log('--> helpers test: ', helpers);
-	
+
 	$('#get-alerts').click(function(){
-		$('#get-messages').hide();
-		$('#get-weather').hide();
-		$('#get-alerts').hide();
-		$('#back').show();
+		helpers.switchButtons();
+		$('#alerts').show();
+		
 		$.ajax({
 			method: 'GET',
 			url: '/alerts',
