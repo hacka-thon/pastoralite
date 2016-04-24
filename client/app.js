@@ -1,18 +1,25 @@
 $(document).ready(function(){
+	helpers.hideViews();
+	
 	if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(helpers.showPosition);
     } 
 
     $('#back').click(function(){
     	helpers.switchButtons();
-    	$('#messages').toggle();
-		$('#weather').toggle();
-		$('#alerts').toggle();
+    	helpers.hideViews();
     })
 
 })
 
 var helpers = {
+	hideViews: function(){
+	  $('#messages').hide();
+		$('#weather').hide();
+		$('#alerts').hide();
+
+	},
+
 	switchButtons: function(){
 		$('#get-messages').toggle();
 		$('#get-weather').toggle();
@@ -25,23 +32,6 @@ var helpers = {
     	state.lon = position.coords.longitude;
 
     	console.log('you are curently at: ', state.lat, state.lon)
-	},
-
-	getAlerts: function(){
-		$.ajax({
-			method: 'GET',
-			url: '/alerts',
-			success: function(result){
-				console.log('--> result from alerts get: ', result)
-
-				for(var item in result){
-					console.log('--> result item: ', result[item]);
-
-					var newAlert = $('<li>'+ result[item].alert+'</li>');
-					$('#alerts').append(newAlert);	
-				}
-			}
-		})
 	}
 
 }
