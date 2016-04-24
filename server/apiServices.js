@@ -18,15 +18,15 @@ module.exports = {
 				var temp = {
 					day: data[i+3],
 					night: data[i+7]
-				}
+				};
 
 				dataArr.push(temp);
 			}
 
-			console.log('formated data: ', dataArr)
+			console.log('formated data: ', dataArr);
 
 			callback(dataArr);
-		})
+		});
 	},
 	addStation: function(query){
 
