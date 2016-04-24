@@ -12,8 +12,27 @@
 	<button class='home' id='get-alerts'>alerts</button>
 	<button class='home' id='get-messages'>messages</button>
 	<button class='home' id='get-weather'>weather</button>
+	<button class='home' id='back'>back</button>
 
-	<ul id='alerts'></ul>
+	<div id='alerts'>
+		<div class='send-alerts'>
+			<img src='assets/svgs/icons_black/bl_bridge_water.svg'>
+			<img src='assets/svgs/icons_black/bl_general.svg'>
+			<img src='assets/svgs/icons_black/bl_highwater.svg'>
+			<img src='assets/svgs/icons_black/bl_lowwater.svg'>
+			<img src='assets/svgs/icons_black/bl_landslide.svg'>
+			<img src='assets/svgs/icons_black/bl_lightning.svg'>
+			<img src='assets/svgs/icons_black/bl_pass_closed.svg'>
+			<img src='assets/svgs/icons_black/bl_raincloud.svg'>
+			<img src='assets/svgs/icons_black/bl_snow.svg'>
+			<img src='assets/svgs/icons_black/bl_snowcloud.svg'>
+			<img src='assets/svgs/icons_black/bl_wind.svg'>
+			<img src='assets/svgs/icons_black/bl_tornado.svg'>
+		</div>
+	</div>
+
+	<div id='messages'></div>
+	<div id='weather'></div>
 
 	<div class="messages">
 		<form class="message-form">
@@ -25,7 +44,9 @@
 
 	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
 	<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='assets/alerts.js'></script>
 	<script type='text/javascript' src='app.js'></script>
+
 
 </body>
 </html>
