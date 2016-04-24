@@ -5,46 +5,6 @@ var api = require('./apiServices');
 var db = require('./db');
 
 
-router.get('/info', function(req, res){
-	var location = parse(req.url);
-	console.log('parsed url: ', location);
-
-	location = {
-		lat: 14,
-		lon: 118.1445,
-		direction: 0
-	};
-
-	api.getWeather(location, function(data){
-		res.send(data);
-	});
-
-});
-
-router.get('/communication', function(req, res){
-	var location = {
-		lat: 72,
-		lon: 97
-	};
-
-	db.getMessages(location, function(data){
-		res.json(data);
-	});
-});
-
-router.post('/communication', function(req, res){
-	var message = {
-		lat: 27,
-		lon: 97,
-		message: "How's it going out there?"
-	};
-
-	db.postMessage(message, function(){
-		res.sendStatus(200);
-	});
-});
-
-
 router.get('/alerts', function(req, res){
 	var location = {
 		lat: 92,
@@ -57,30 +17,69 @@ router.get('/alerts', function(req, res){
 });
 
 router.post('/alerts', function(req, res){
-	var alert = {
-		lat: 92,
-		lon: 124,
-		alert: "Oh n/m, all good."
-	};
+	console.log('--> req.body alerts: ', req.body)
 
-	db.postAlert(alert);
+
+	db.postAlert(req.body);
 	res.sendStatus(200);
 });
 
+// router.get('/info', function(req, res){
+// 	var location = parse(req.url);
+// 	console.log('parsed url: ', location);
 
-router.post('/mystation', function(req, res){
-	//gets search info off req.body
+// 	location = {
+// 		lat: 14,
+// 		lon: 118.1445,
+// 		direction: 0
+// 	};
 
-	//calls func on api -> sending data
+// 	api.getWeather(location, function(data){
+// 		res.send(data);
+// 	});
 
-	//returns data
-});
+// });
 
-router.put('/mystation', function(req, res){
-	//gets new info off req.body
+// router.get('/communication', function(req, res){
+// 	var location = {
+// 		lat: 72,
+// 		lon: 97
+// 	};
 
-	//calls func on api -> sending data
+// 	db.getMessages(location, function(data){
+// 		res.json(data);
+// 	});
+// });
 
-});
+// router.post('/communication', function(req, res){
+// 	var message = {
+// 		lat: 27,
+// 		lon: 97,
+// 		message: "How's it going out there?"
+// 	};
+
+// 	db.postMessage(message, function(){
+// 		res.sendStatus(200);
+// 	});
+// });
+
+
+
+
+
+// router.post('/mystation', function(req, res){
+// 	//gets search info off req.body
+
+// 	//calls func on api -> sending data
+
+// 	//returns data
+// });
+
+// router.put('/mystation', function(req, res){
+// 	//gets new info off req.body
+
+// 	//calls func on api -> sending data
+
+// });
 
 module.exports = router;

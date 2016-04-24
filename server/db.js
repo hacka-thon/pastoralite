@@ -8,22 +8,17 @@ var messagesRef = ref.child('messages');
 
 module.exports = {
 	getAlerts: function(data, callback){
-		var uid = "" + data.lat + ',' + data.lon;
 
 		alertsRef.once('value', function(snapshot){
 			var response = snapshot.val();
+			// helpers.directionFilter(response, data.direction, data.lat, data.lon);
 
-			helpers.directionFilter(response, data.direction, data.lat, data.lon);
-
-
-			callback(response[uid]);
+			callback(response);
 		});
 
 	},
 
 	postAlert: function(data){
-		var uid = "" + data.lat + ',' + data.lon;
-
 		alertsRef.push({
 				alert: data.alert,
 				time: data.time,

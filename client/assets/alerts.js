@@ -7,38 +7,44 @@ $(document).ready(function(){
 		$('#alerts').show();
 		
 		$.ajax({
-			method: 'GET',
+			type: 'GET',
 			url: '/alerts',
 			success: function(result){
 				console.log('--> result from alerts get: ', result)
 
 				for(var item in result){
-					console.log('--> result item: ', result[item]);
+					var curr = result[item];
 
-					var newAlert = $('<li>'+ result[item].alert+'</li>');
-					$('#alerts').append(newAlert);	
+					console.log('--> curr alert: ', curr.alert);
+
+					var newAlert = $('<li><img src=' + curr.alert + ' class="col-xs-1 alerts"> lat: ' + curr.lat + ' lon: ' + curr.lon + '</li>');
+
+					$('#alert-list').append(newAlert);	
 				}
 			}
 		})
+
 	})
 
 	$('.send-alerts').click(function(e){
-		console.log('--> event in send alerts: ', e);
+		var data = {
+			lat: state.lat,
+			lon: state.lon,
+			time: $.now(),
+			alert: e.target.currentSrc
+		}
+
+		var data = JSON.stringify(data);
 
 		$.ajax({
-		method: 'GET',
-		url: '/alerts',
-		success: function(result){
-			console.log('--> result from alerts get: ', result)
-
-			for(var item in result){
-				console.log('--> result item: ', result[item]);
-
-				var newAlert = $('<li>'+ result[item].alert+'</li>');
-				$('#alerts').append(newAlert);	
+			type: 'POST',
+			url: '/alerts',
+			contentType: 'application/json',
+			data: data,
+			success: function(){
+				console.log('--> alert sent <--');
 			}
-		}
-	})
+		})
 	})
 
 });
