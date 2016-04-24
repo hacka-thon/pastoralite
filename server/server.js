@@ -1,4 +1,5 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var routes = require('./routes.js');
 var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 3000;
@@ -15,7 +16,7 @@ app.use(function(req, res, next){
 });
 
 
-// app.use(express.static(__dirname + '/../client/'));
+app.use(express.static(__dirname + '/../client/'));
 app.use('/', routes);
 
 app.listen(PORT, function(){

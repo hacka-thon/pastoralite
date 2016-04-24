@@ -1,57 +1,68 @@
 var express = require('express');
 var router = express.Router();
+var parse = require('query-string').parse;
 var api = require('./apiServices');
 var db = require('./db');
 
-router.get('/', function(req, res){
-	console.log('json: ', JSON.stringify())
-	res.send('hey! this server is working!');
-})
-
 router.get('/info', function(req, res){
-	console.log('in info route: ', req.query);
-	var query = {
-		lat: -34.1478,
+	var location = parse(req.url);
+	console.log('parsed url: ', location);
+
+	location = {
+		lat: req.query.lat,
 		lon: 118.1445
 	};
 
-	api.getData(query, function(data){
+	api.getWeather(location, function(data){
 		res.send(data);
 	})
 
 })
 
 router.get('/communication', function(req, res){
-	//sends info based on location
+	var location = {
+		lat: 72,
+		lon: 97
+	}
+
+	db.getMessages(location, function(data){
+		res.json(data);
+	})
 })
 
 router.post('/communication', function(req, res){
-	//gets info and stores it in state
+	var message = {
+		lat: 27,
+		lon: 97,
+		message: "How's it going out there?"
+	}
+
+	db.postMessage(message, function(){
+		res.sendStatus(200);
+	})
 })
 
 
 router.get('/alert', function(req, res){
-	var alert = {
+	var location = {
 		lat: 92,
 		lon: 124
 	}
 
-	db.getAlerts(alert, function(data){
+	db.getAlerts(location, function(data){
 		res.send(data);
 	});
 })
 
 router.post('/alert', function(req, res){
-	console.log('in alert post route');
-
 	var alert = {
 		lat: 92,
 		lon: 124,
 		alert: "Oh n/m, all good."
 	}
 
-	db.newAlert(alert);
-	res.sendStatus(400);
+	db.postAlert(alert);
+	res.sendStatus(200);
 })
 
 

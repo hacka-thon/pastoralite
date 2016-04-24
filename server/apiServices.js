@@ -3,7 +3,7 @@ var key = require('./utils').key;
 
 
 module.exports = {
-	getData: function(query, callback){
+	getWeather: function(query, callback){
 		var queryStr = 'http://api.openweathermap.org/data/2.5/weather?lat=' + query.lat + '&lon=' + query.lon + '&APPID=' + key;
 
 		request.get(queryStr, function(err, res, data) {
