@@ -2,36 +2,36 @@ $(document).ready(function(){
 
 	console.log('--> helpers test: ', helpers);
 
-	$('#get-alerts').click(function(){
+	$('#get-messages').click(function(){
 		helpers.switchButtons();
-		$('#alerts').show();
+		$('#messages').show();
 		
 		$.ajax({
 			type: 'GET',
-			url: '/alerts',
+			url: '/messages',
 			success: function(result){
-				console.log('--> result from alerts get: ', result)
+				console.log('--> result from messeges get: ', result)
 
 				for(var item in result){
 					var curr = result[item];
 
-					console.log('--> curr alert: ', curr.alert);
+					console.log('--> curr message: ', curr.alert);
 
-					var newAlert = $('<li><img src=' + curr.alert + ' class="col-xs-1 alerts"> lat: ' + curr.lat + ' lon: ' + curr.lon + '</li>');
+					var newMessage = $('<li> message: ' + curr.message +  '</li>');
 
-					$('#alert-list').append(newAlert);	
+					$('#message-list').append(newMessage);	
 				}
 			}
 		})
 
 	})
 
-	$('.send-alerts').click(function(e){
+	$('.send-message').click(function(e){
 		var data = {
 			lat: state.lat,
 			lon: state.lon,
 			time: $.now(),
-			alert: e.target.currentSrc
+			message: e.target.currentSrc
 		}
 
 		data = JSON.stringify(data);

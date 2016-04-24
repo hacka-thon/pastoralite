@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	helpers.hideViews();
+	$('#back').hide();
 	
 	if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(helpers.showPosition);
