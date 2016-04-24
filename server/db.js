@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var Firebase = require('firebase');
 var ref = new Firebase('https://vivid-fire-5392.firebaseio.com/pastoralist');
 var alertsRef = ref.child('alerts');
@@ -10,8 +11,12 @@ module.exports = {
 		var uid = "" + data.lat + ',' + data.lon;
 
 		alertsRef.once('value', function(snapshot){
-			var response = snapshot.child(uid).val();
-			callback(response);
+			var response = snapshot.val();
+
+			helpers.directionFilter(response, data.direction, data.lat, data.lon)
+
+
+			callback(response[uid]);
 		})
 
 	},
@@ -19,9 +24,11 @@ module.exports = {
 	postAlert: function(data){
 		var uid = "" + data.lat + ',' + data.lon;
 
-		alertsRef.child(uid).push({
+		alertsRef.push({
 				alert: data.alert,
-				time: data.time
+				time: data.time,
+				lat: data.lat,
+				lon: data.lon
 			});
 	},
 
@@ -43,5 +50,39 @@ module.exports = {
 		})
 	}
 
+}
+
+var helpers = {
+	directionFilter: function(queryResult, direction, lat, lon){
+		var result;
+
+		if(direction === 0){
+			result = _.filter(queryResult, function(item){
+				if(item.lat > lat && (lon-1) < item.lon < (lon+1)) return true;
+			})
+		}
+
+		if(direction === 1){
+			result = _.filter(queryResult, function(item){
+				if(item.lat>lat && item.on>lon) return true;
+			})
+		}
+
+		if(direction === 2){
+			result = _.filter(queryResult, function(item){
+				if(item.lon > lon && (lat-1) < item.lat < (lat+1)) return true;
+			})
+		}
+
+		if(direction === 3){
+			result = _.filter(queryResult, function(item){
+				if(item.lat<lat && item.on>lon) return true;
+			})
+		}
+
+		if(direction === 4){
+			
+		}
+	}
 }
 

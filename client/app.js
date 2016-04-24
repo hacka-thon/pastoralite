@@ -1,24 +1,27 @@
-angular.module('myApp', [
-  'ngResource',
-  'ngMessages',
-  'ngMaterial',
-  'ui.router',
-  'satellizer',
 
-  'myApp.navbar',
+$(document).ready(function(){
+	// $('#GS').load('assets/views/gameswap.html');
 
-  'myApp.alerts',
-  'myApp.communication',
-  'myApp.home',
-  'myApp.information',
-  'myApp.weather'
-])
+	$('#get-alerts').click(function(){
+		$.ajax({
+			method: 'GET',
+			url: '/alerts',
+			success: function(result){
+				console.log('--> result from alerts get: ', result)
 
-  .config(function($stateProvider, $mdThemingProvider, $urlRouterProvider) {
-    $mdThemingProvider.theme('default')
-      .primaryPalette('blue')
-      .accentPalette('grey');
+				for(var item in result){
+					console.log('--> result item: ', result[item]);
 
-    $urlRouterProvider.otherwise('/home');
+					var newAlert = $('<li>'+ result[item].alert+'</li>');
+					$('#alerts').append(newAlert);	
+				}
+			}
+		})
+	});
 
-  });
+	$('#Liven').click(function(){
+		var el = document.getElementById('LivenUp')
+		el.scrollIntoView(false);
+	});
+
+});
