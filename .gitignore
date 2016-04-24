@@ -2,3 +2,4 @@ client/bower_components/
 npm-debug.log
 node_modules/
 server/utils.js
+.idea

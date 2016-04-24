@@ -16,9 +16,9 @@
     <md-toolbar ng-controller="NavbarController" class="md-whiteframe-z2">
       <div class="md-toolbar-tools" layout-margin layout-padding>
         <a ui-sref="home" md-button>Home</a>
-        <a ui-sref="information" md-button>Information</a>
-        <a ui-sref="communication" md-button>Communication</a>
         <a ui-sref="alerts" md-button>Alerts</a>
+        <a ui-sref="weather" md-button>Weather</a>
+        <a ui-sref="communication" md-button>Communication</a>
       </div>
     </md-toolbar>
     <div ui-view></div>
@@ -36,11 +36,13 @@
     <!-- Application Code -->
     <script src="app.js"></script>
     <script src="shared/navbar/navbar.js"></script>
+    <!--Controllers-->
     <script src="components/alerts/alerts.js"></script>
     <script src="components/communication/communication.js"></script>
     <script src="components/home/home.js"></script>
-    <script src="components/information/information.js"></script>
     <script src="components/weather/weather.js"></script>
+    <!--Services-->
+    <script src="services/HomeService.js"></script>
 
   </body>
 

@@ -4,13 +4,10 @@ angular.module('myApp', [
   'ngMaterial',
   'ui.router',
   'satellizer',
-
   'myApp.navbar',
-
   'myApp.alerts',
   'myApp.communication',
   'myApp.home',
-  'myApp.information',
   'myApp.weather'
 ])
 
