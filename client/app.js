@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	helpers.hideViews();
-	
+
 	if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(helpers.showPosition);
-    } 
+    }
 
     $('#back').click(function(){
     	helpers.switchButtons();
@@ -31,12 +31,12 @@ var helpers = {
     	state.lat = position.coords.latitude;
     	state.lon = position.coords.longitude;
 
-    	console.log('you are curently at: ', state.lat, state.lon)
+    	console.log('you are curently at: ', state.lat, state.lon);
 	}
 
-}
+};
 
 var state = {
 	lat: 'default',
 	lon: 'default'
-}
+};
