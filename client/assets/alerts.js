@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#back').hide();
+
 	console.log('--> helpers test: ', helpers);
 
 	$('#get-alerts').click(function(){
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			alert: e.target.currentSrc
 		}
 
-		var data = JSON.stringify(data);
+		data = JSON.stringify(data);
 
 		$.ajax({
 			type: 'POST',
