@@ -13,7 +13,7 @@ router.get('/messages', function(req, res){
 });
 
 router.post('/messages', function(req, res){
-	console.log('--> req.body messages: ', req.body)
+	console.log('--> req.body messages: ', req.body);
 
 	db.postMessage(req.body);
 	res.sendStatus(200);
@@ -27,9 +27,7 @@ router.get('/alerts', function(req, res){
 });
 
 router.post('/alerts', function(req, res){
-	console.log('--> req.body alerts: ', req.body)
-
-
+	console.log('--> req.body alerts: ', req.body);
 	db.postAlert(req.body);
 	res.sendStatus(200);
 });

@@ -17,14 +17,14 @@ $(document).ready(function(){
 
 					console.log('--> curr alert: ', curr.alert);
 
-					var newAlert = $('<li><img src=' + curr.alert + ' class="col-xs-1 alerts"> lat: ' + curr.lat + ' lon: ' + curr.lon + '</li>');
+					var newAlert = $('<li class="col-xs-18 alert-item"><img src=' + curr.alert + ' > lat: ' + curr.lat + ' lon: ' + curr.lon + '</li>');
 
-					$('#alert-list').append(newAlert);	
+					$('#alert-list').append(newAlert);
 				}
 			}
-		})
+		});
 
-	})
+	});
 
 	$('.send-alerts').click(function(e){
 		var data = {
@@ -32,7 +32,7 @@ $(document).ready(function(){
 			lon: state.lon,
 			time: $.now(),
 			alert: e.target.currentSrc
-		}
+		};
 
 		data = JSON.stringify(data);
 
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			success: function(){
 				console.log('--> alert sent <--');
 			}
-		})
-	})
+		});
+	});
 
 });

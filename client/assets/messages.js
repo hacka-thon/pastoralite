@@ -1,30 +1,26 @@
 $(document).ready(function(){
 
-	console.log('--> helpers test: ', helpers);
+  $('#get-messages').click(function(){
+    helpers.switchButtons();
+    $('#messages').show();
+    $.ajax({
+      type: 'GET',
+      url: '/messages',
+      success: function(result){
+        console.log('--> result from messeges get: ', result);
 
-	$('#get-messages').click(function(){
-		helpers.switchButtons();
-		$('#messages').show();
-		
-		$.ajax({
-			type: 'GET',
-			url: '/messages',
-			success: function(result){
-				console.log('--> result from messeges get: ', result)
+        for(var item in result){
+          var curr = result[item];
 
-				for(var item in result){
-					var curr = result[item];
+          console.log('--> curr message: ', curr.alert);
 
-					console.log('--> curr message: ', curr.alert);
+          var newMessage = $('<li> message: ' + curr.message +  '</li>');
 
-					var newMessage = $('<li> message: ' + curr.message +  '</li>');
-
-					$('#message-list').append(newMessage);	
-				}
-			}
-		})
-
-	})
+          $('#message-list').append(newMessage);
+        }
+      }
+    });
+  });
 
 	$('.send-message').click(function(e){
 		var data = {
@@ -32,7 +28,7 @@ $(document).ready(function(){
 			lon: state.lon,
 			time: $.now(),
 			message: e.target.currentSrc
-		}
+		};
 
 		data = JSON.stringify(data);
 
@@ -44,7 +40,7 @@ $(document).ready(function(){
 			success: function(){
 				console.log('--> alert sent <--');
 			}
-		})
-	})
+		});
+	});
 
 });

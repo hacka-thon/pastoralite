@@ -9,17 +9,17 @@ $(document).ready(function(){
 		var data = {
 			lat: state.lat,
 			lon: state.lon,
-		}
+		};
 
 		data = JSON.stringify(data);
-		
+
 		$.ajax({
 			type: 'GET',
 			url: '/weather',
 			contentType: 'application/json',
 			data: data,
 			success: function(result){
-				console.log('--> result from weather get: ', result)
+				console.log('--> result from weather get: ', result);
 
 				for(var item in result){
 					var curr = result[item];
@@ -28,11 +28,11 @@ $(document).ready(function(){
 
 					var newAlert = $('<li><img src=' + curr.alert + ' class="col-xs-1 alerts"> lat: ' + curr.lat + ' lon: ' + curr.lon + '</li>');
 
-					$('#alert-list').append(newAlert);	
+					$('#alert-list').append(newAlert);
 				}
 			}
-		})
+		});
 
-	})
+	});
 
-})
+});
