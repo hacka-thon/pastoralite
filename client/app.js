@@ -1,27 +1,29 @@
-
 $(document).ready(function(){
-	// $('#GS').load('assets/views/gameswap.html');
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(helpers.showPosition);
+    } 
 
-	$('#get-alerts').click(function(){
-		$.ajax({
-			method: 'GET',
-			url: '/alerts',
-			success: function(result){
-				console.log('--> result from alerts get: ', result)
+})
 
-				for(var item in result){
-					console.log('--> result item: ', result[item]);
+var helpers = {
+	// getLocation: function(callback) {
+	// 	console.log('running get location');
+	//     if (navigator.geolocation) {
+	//         navigator.geolocation.getCurrentPosition(this.showPosition);
+	//     } else {
+	//         console.error('location is not supported')
+	//     }
+	// },
 
-					var newAlert = $('<li>'+ result[item].alert+'</li>');
-					$('#alerts').append(newAlert);	
-				}
-			}
-		})
-	});
+	showPosition: function(position) {
+    	state.lat = position.coords.latitude;
+    	state.lon = position.coords.longitude;
 
-	$('#Liven').click(function(){
-		var el = document.getElementById('LivenUp')
-		el.scrollIntoView(false);
-	});
+    	console.log('you are curently at: ', state.lat, state.lon)
+	}
+}
 
-});
+var state = {
+	lat: 'default',
+	lon: 'default'
+}
