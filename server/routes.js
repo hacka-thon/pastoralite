@@ -4,13 +4,15 @@ var parse = require('query-string').parse;
 var api = require('./apiServices');
 var db = require('./db');
 
+
 router.get('/info', function(req, res){
 	var location = parse(req.url);
 	console.log('parsed url: ', location);
 
 	location = {
 		lat: 14,
-		lon: 118.1445
+		lon: 118.1445,
+		direction: 0
 	};
 
 	api.getWeather(location, function(data){
@@ -43,7 +45,7 @@ router.post('/communication', function(req, res){
 })
 
 
-router.get('/alert', function(req, res){
+router.get('/alerts', function(req, res){
 	var location = {
 		lat: 92,
 		lon: 124
@@ -54,7 +56,7 @@ router.get('/alert', function(req, res){
 	});
 })
 
-router.post('/alert', function(req, res){
+router.post('/alerts', function(req, res){
 	var alert = {
 		lat: 92,
 		lon: 124,

@@ -1,53 +1,23 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<title>Genevieve Kolve</title>
+	<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'/>
+	<link rel='stylesheet' type='text/css' href='styles.css'/>
+</head>
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Pastoralist</title>
-    <link href="favicon.png" rel="shortcut icon">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-    <link href="styles/styles.css" rel="stylesheet">
-  </head>
+<body>
+	<h1>pastoraLite</h1>
+	<button class='home' id='get-alerts'>alerts</button>
+	<button class='home' id='get-messages'>messages</button>
+	<button class='home' id='get-weather'>weather</button>
 
-  <body layout="column">
-    <md-toolbar ng-controller="NavbarController" class="md-whiteframe-z2">
-      <div class="md-toolbar-tools" layout-margin layout-padding>
-        <a ui-sref="home" md-button>Home</a>
-        <a ui-sref="information" md-button>Information</a>
-        <a ui-sref="communication" md-button>Communication</a>
-        <a ui-sref="alerts" md-button>Alerts</a>
-      </div>
-    </md-toolbar>
-    <div ui-view></div>
+	<ul id='alerts'></ul>
 
-    <!-- Third-party Libraries -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/satellizer/satellizer.js"></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
+	<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='app.js'></script>
 
-    <!-- Application Code -->
-    <script src="app.js"></script>
-    <script src="shared/navbar/navbar.js"></script>
-    <script src="components/alerts/alerts.js"></script>
-    <script src="components/communication/communication.js"></script>
-    <script src="components/home/home.js"></script>
-    <script src="components/information/information.js"></script>
-    <script src="components/weather/weather.js"></script>
-
-  </body>
-
+</body>
 </html>
-
-<!-- TODO: setup links on home page for info options
-    TODO: setup space on info page for data
-    TODO: setup service to manage data from backend
-    TODO: figure out how to send a query string on request
--->
