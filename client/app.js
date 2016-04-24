@@ -1,27 +1,42 @@
-
 $(document).ready(function(){
-	// $('#GS').load('assets/views/gameswap.html');
+	helpers.hideViews();
+	
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(helpers.showPosition);
+    } 
 
-	$('#get-alerts').click(function(){
-		$.ajax({
-			method: 'GET',
-			url: '/alerts',
-			success: function(result){
-				console.log('--> result from alerts get: ', result)
+    $('#back').click(function(){
+    	helpers.switchButtons();
+    	helpers.hideViews();
+    })
 
-				for(var item in result){
-					console.log('--> result item: ', result[item]);
+})
 
-					var newAlert = $('<li>'+ result[item].alert+'</li>');
-					$('#alerts').append(newAlert);	
-				}
-			}
-		})
-	});
+var helpers = {
+	hideViews: function(){
+	  $('#messages').hide();
+		$('#weather').hide();
+		$('#alerts').hide();
 
-	$('#Liven').click(function(){
-		var el = document.getElementById('LivenUp')
-		el.scrollIntoView(false);
-	});
+	},
 
-});
+	switchButtons: function(){
+		$('#get-messages').toggle();
+		$('#get-weather').toggle();
+		$('#get-alerts').toggle();
+		$('#back').toggle();
+	},
+
+	showPosition: function(position) {
+    	state.lat = position.coords.latitude;
+    	state.lon = position.coords.longitude;
+
+    	console.log('you are curently at: ', state.lat, state.lon)
+	}
+
+}
+
+var state = {
+	lat: 'default',
+	lon: 'default'
+}
