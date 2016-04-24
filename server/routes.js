@@ -23,7 +23,7 @@ router.get('/info', function(req, res){
 
 router.get('/communication', function(req, res){
 	var location = {
-		lat: 72,
+		lat: 27,
 		lon: 97
 	};
 
@@ -33,11 +33,7 @@ router.get('/communication', function(req, res){
 });
 
 router.post('/communication', function(req, res){
-	var message = {
-		lat: 27,
-		lon: 97,
-		message: "How's it going out there?"
-	};
+	var message = req.body;
 
 	db.postMessage(message, function(){
 		res.sendStatus(200);

@@ -45,7 +45,7 @@ module.exports = {
 		var uid = "" + data.lat + ',' + data.lon;
 
 		messagesRef.child(uid).push({
-			messge: data.message,
+			message: data.message,
 			time: data.time
 		});
 	}
