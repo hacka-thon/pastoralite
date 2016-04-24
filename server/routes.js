@@ -9,7 +9,7 @@ router.get('/info', function(req, res){
 	console.log('parsed url: ', location);
 
 	location = {
-		lat: req.query.lat,
+		lat: 14,
 		lon: 118.1445
 	};
 
